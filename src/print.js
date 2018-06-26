@@ -1,7 +1,3 @@
-import _ from 'lodash';
-
-export default function printMe() {
-  console.log(
-    _.join(['update', 'print.js!'])
-  );
-}
+export default function print(text) {
+    console.log(text);
+};

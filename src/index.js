@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import printMe from './print.js';
+import Print from './print';
 import './style.css';
 
 function component() {
@@ -9,7 +9,8 @@ function component() {
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
     btn.innerHTML = '点我';
-    btn.onclick = printMe;
+    btn.onclick = Print.bind(null, 'Hello webpack!');
+
 
     element.appendChild(btn);
 
@@ -18,12 +19,3 @@ function component() {
   
   let element = component();
   document.body.appendChild(element);
-
-  if (module.hot) {
-    module.hot.accept('./print.js', function () {
-      console.log('收到print更新！');
-      element = component();
-      document.body.appendChild(element);
-
-    })
-  }
