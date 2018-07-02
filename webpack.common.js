@@ -16,8 +16,8 @@ module.exports = merge(base, {
             {
                 test: /\.(js)$/,
                 exclude: [
-                    /[\/]common[\/]/,
-                    /node_modules/
+                    /node_modules/,
+                    /home\/mod-vnet\/topo\/qunee/
                 ],
                 loader: 'babel-loader'
             },
@@ -48,6 +48,11 @@ module.exports = merge(base, {
                     test: /home\/mod-common[\\/]/,
                     chunks: 'all',
                     name: 'mod-common'
+                },
+                '/home\/mod-vnet\/topo\/qunee/': {
+                    test: /home\/mod-vnet\/topo\/qunee/,
+                    chunks: 'all',
+                    name: 'qunee'
                 }
             }
         }

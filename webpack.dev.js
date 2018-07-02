@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
     devtool: 'eval',
@@ -14,7 +15,8 @@ module.exports = merge(common, {
             from: "src/vapi",
             to: "vapi",
             force: true
-        }])
+        }]),
+        new BundleAnalyzerPlugin()
     ],
     mode: "development"
 });

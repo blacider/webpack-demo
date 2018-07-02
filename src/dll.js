@@ -9,3 +9,4 @@ require('common/css/grid.css');
 let tmp = '';
 
 require('common/' + tmp + '.js');
+
