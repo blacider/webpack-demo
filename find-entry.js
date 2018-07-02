@@ -84,6 +84,12 @@ module.exports = function (directory = 'src/home') {
         require('common/css/main.css');
         require('common/css/icon.css');
         require('common/css/grid.css');
+
+        let tmp = '';
+
+        require.include(\`home/mod-common/\${tmp}.js\`); //业务公共部分代码，抽出，放到外层打包
+
+        require.include('home/mod-launch/fire'); //防止各个入口重复打包
         var param = require("common/lang/Object").fromQueryString(location.search.substring(1));
 
         param.m = param.m || 'mod-index/index';
@@ -94,3 +100,5 @@ module.exports = function (directory = 'src/home') {
 
     return Array.from(set);
 };
+
+module.exports();
